@@ -1,6 +1,6 @@
-package com.ctt.api
+package com.ctt.admin
 
-import com.ctt.api.config.AppSetting
+import com.ctt.admin.config.AppSetting
 import com.ctt.pub.config.JacksonConfiguration
 import com.ctt.pub.config.ValidatorConfiguration
 import com.ctt.pub.jwt.JwtConfiguration
@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Import
         WxConfiguration::class,
         WxPayConfiguration::class)
 @EnableConfigurationProperties(AppSetting::class)
- class API
+class Admin
 
 @Bean
 fun customOpenAPI(@Value("\${springdoc.version}") appVersion: String?): OpenAPI? {
@@ -54,5 +54,5 @@ fun userOpenApi(): GroupedOpenApi? {
 }
 
 fun main(args: Array<String>) {
-    runApplication<API>(*args)
+    runApplication<Admin>(*args)
 }

@@ -8,10 +8,10 @@
         <version>0.0.1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>ctt-api</artifactId>
+    <artifactId>ctt-admin</artifactId>
     <version>0.0.1</version>
-    <name>ctt-api</name>
-    <description>ctt</description>
+    <name>ctt-admin</name>
+    <description>ctt-admin</description>
 
     <dependencies>
         <dependency>
