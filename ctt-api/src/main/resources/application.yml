@@ -1,0 +1,71 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: ctt-api
+  r2dbc:
+    url: r2dbcs:mysql://root:123456@127.0.0.1:3306/petfood2
+  resources:
+    cache:
+      period: 31536000
+      cachecontrol:
+        max-age: 31536000
+    chain:
+      html-application-cache: true
+      enabled: true
+      strategy:
+        content:
+          enabled: true
+          paths: /webjars/swagger-ui/**.*
+springdoc:
+  version: '@springdoc.version@'
+  swagger-ui:
+    enabled: true
+wx:
+  appid: xxx
+  secret: xxx
+  pay:
+    appId: xxx #微信公众号或者小程序等的appid
+    mchId: 1603440373 #微信支付商户号
+    mchKey: xxx #微信支付商户密钥
+    subAppId: "" #服务商模式下的子商户公众账号ID
+    subMchId: "" #服务商模式下的子商户号
+    keyPath: classpath:/cert/apiclient_cert.p12 # p12证书的位置，可以指定绝对路径，也可以指定类路径（以classpath:开头）
+    notify-url: "http://api.chongtuntun.com:8080/notify/pay/wx"
+    sandbox: false
+
+jwt:
+  secret: "xxxxxxxxxxxxxxxxxx"
+
+swagger:
+  enable: true
+  base-package: "com.ctt.api.controller"
+  default-token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbjp1aWQiOjEsImlzcyI6ImxyYyIsImV4cCI6MTYwNDE2MDk5MH0.9t11-hwSt3UvHUOu2BBHyXrrgCtbc-UxRkahdbZ6RoU"
+  title: "C端接口"
+  desc: "C端接口"
+
+app:
+  login:
+    path:
+      - "/**"
+    exclude-path:
+      - "/wechat_login"
+      - "/mobile_login"
+      - "/login"
+      - "/logout"
+      - "/product/**"
+      - "/product_category"
+      - "/notify/**"
+      - "/favicon.ico"
+      - "/webjars/**"
+      - "/swagger-resources/**"
+      - "/error"
+      - "/doc.html"
+      - "/swagger-ui/"
+      - "/v3/api-docs/**"
+      - "/swagger-ui/**"
+      - "/swagger-ui.html"
+      - "/v2/**"
