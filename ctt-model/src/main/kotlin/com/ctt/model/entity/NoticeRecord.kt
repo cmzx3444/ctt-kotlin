@@ -1,24 +1,22 @@
-package com.ctt.model.entity
+package com.ctt.model.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema
-import lombok.*
 import org.springframework.data.relational.core.mapping.Table
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime
 
-@Table("t_brand")
-@Schema(name = "Brand对象", description = "品牌")
-data class Brand(
+@Table("t_notice_record")
+@Schema(name = "NoticeRecord对象", description = "降价通知记录")
+data class NoticeRecord (
     @Schema(name = "Id")
     var id: Int? = null,
 
-    @Schema(name = "名称")
-    var name: String,
+    @Schema(name = "降价通知Id")
+    var noticeId: Int,
 
-    @Schema(name = "封面url")
-    var coverUrl: String,
-
-    @Schema(name = "品牌介绍")
-    var content: String,
+    @Schema(name = "是否已读，0 已读，1 已读")
+    var isRead: Boolean,
 
     @Schema(name = "是否删除 0 否，1 是")
     var deleted: Boolean = false,

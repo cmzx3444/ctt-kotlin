@@ -1,13 +1,10 @@
-package com.ctt.model.entity
+package com.ctt.api.dto.user
 
 import io.swagger.v3.oas.annotations.media.Schema
-import lombok.*
-import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
-@Table("t_address")
-@Schema(name = "Address对象", description = "用户收货地址表")
-data class Address(
+@Schema(name = "收货地址", description = "用户收货地址表")
+data class AddressVo(
     @Schema(name = "Id")
     var id: Int? = null,
 
