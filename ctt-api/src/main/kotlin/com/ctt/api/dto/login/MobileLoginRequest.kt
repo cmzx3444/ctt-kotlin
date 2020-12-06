@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
-@Schema(description = "ssasdas",name = "xxxdsa")
+@Schema(name = "登陆请求")
 class MobileLoginRequest(
         @NotBlank(message = "验证码不能为空")
         @Size(min = 4, max = 6, message = "验证码不合法")

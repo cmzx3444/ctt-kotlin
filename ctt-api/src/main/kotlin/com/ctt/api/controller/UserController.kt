@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import javax.validation.Valid
 
-@Tag(description = "用户相关操作接口", name = "xxxxx")
+@Tag(description = "用户相关操作接口", name = "User")
 @RestController
 class UserController(val loginService: LoginService) {
 
     @GetMapping("/address/list")
     suspend fun addressList(@RequestBody @Valid req: MobileLoginRequest): Result<List<AddressVo>> {
-        return Result.of()
+        return Result.of(null)
     }
 
     @PostMapping("/address/save")
     suspend fun addressSave(@RequestBody @Valid vo: AddressVo): Result<Void> {
-        return Result.of();
+        return Result.of(null);
     }
 }

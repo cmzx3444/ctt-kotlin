@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 
 @Data
-@Schema(description = "sss",name = "xxxdsa")
+@Schema(name = "登陆返回")
 data class LoginResponse(
         @Schema(name = "token")
         var token: String? = null,
