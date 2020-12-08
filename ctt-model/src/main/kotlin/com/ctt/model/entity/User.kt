@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 data class User(
         @Id
         @Schema(name = "用户Id",description = "用户Id")
-        val id: Int? = null,
+        val id: Int = 0,
         @Schema(name = "用户Id",description = "用户Id")
         val username: String = "",
         @Schema(name = "用户Id",description = "用户Id")

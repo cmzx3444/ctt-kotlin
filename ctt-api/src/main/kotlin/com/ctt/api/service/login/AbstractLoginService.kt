@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 
 abstract class AbstractLoginService(
-        val userRepo: UserRepo,
-        val jwt: Jwt
+    val userRepo: UserRepo,
+    private val jwt: Jwt
 ) : LoginService {
 
     @Transactional

@@ -19,13 +19,11 @@ import org.springframework.web.util.pattern.PathPatternParser
 
 
 @Configuration(proxyBeanMethods = false)
-open class WebfluxConfig(
+class WebfluxConfig(
         val jwt: Jwt,
         val appSetting: AppSetting,
 ) {
     private val pathPattern: PathPattern = PathPatternParser().parse("")
-
-
 
     @Bean
     fun loginWebFilter(): WebFilter {
