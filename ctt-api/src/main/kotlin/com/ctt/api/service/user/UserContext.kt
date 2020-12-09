@@ -4,6 +4,7 @@ import com.ctt.api.config.ReactiveRequestContextHolder
 import com.ctt.api.repository.UserRepo
 import com.ctt.model.entity.User
 import com.ctt.pub.constants.Constants
+import kotlinx.coroutines.reactive.awaitFirst
 import org.springframework.stereotype.Component
 
 @Component
@@ -21,16 +22,12 @@ class UserContext(userRepo: UserRepo) {
 
     suspend fun getLoginUser(): User {
         val req = ReactiveRequestContextHolder.getRequest();
-        if (req == null) {
-            println("req==null ")
-            return User(id = 1);
-        }
-        req.subscribe {
+        return req.map {
             println("xxxxx " + it)
             if (it != null) {
                 println("xxxxx " + it.headers[Constants.HEADER_AUTH_TOKEN])
             }
-        }
-        return User(id = 1);
+            User(id = 1)
+        }.awaitFirst()
     }
 }
